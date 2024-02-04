@@ -11,14 +11,14 @@ type StringProps = {
 
 const String = ({ stringNumber, notes }: StringProps) => {
     return (
-        <tr>
+        <tr style={{ display: 'flex' }}>
             <th id={`string_${stringNumber}`} scope="row">
                 <span className="sr-only">String {stringNumber}</span>
             </th>
             <For in={notes}>
                 {(note: Note, index: number) => (
                     <Fret
-                        fretNumber={index + 1}
+                        fretNumber={index}
                         stringNumber={stringNumber}
                         note={note}
                     />

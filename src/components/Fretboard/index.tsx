@@ -18,8 +18,8 @@ export const Fretboard = ({ tuning = STANDARD, fretCount = 24 }: FretboardProps)
     return (
         <table className="neck">
             <thead>
-                <tr>
-                    <th scope="col" role="presentation"></th>
+                <tr style={{ display: 'flex'}}>
+                    <th scope="col" role="presentation" ></th>
                     {frets.map((fret) => {
                         const id = `fret_${fret}`
                         const fretName = `Fret ${fret}`
