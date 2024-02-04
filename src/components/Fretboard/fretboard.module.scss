@@ -1,0 +1,12 @@
+/**
+* # Fretboard widths
+*
+* Width of Fret n = calc(var(--first-fret-width) * var(fret-ratio) ** (n−1))
+*/
+
+:root {
+    --marker-color: #383530;
+    --fretboard-color: #755628;
+    --fret-ratio: 0.9439;
+    --first-fret-width: 2.5rem;
+}
