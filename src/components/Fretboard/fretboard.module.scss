@@ -9,6 +9,18 @@
     --fretboard-color: #755628;
     --fret-ratio: 0.9439;
     --first-fret-width: 2.5rem;
+
+    // TODO - explitly name colors by note
+    --color-r: hwb(350 35% 0%);
+    --color-o: hwb(31 0% 0%);
+    --color-y: hwb(49 0% 4%);
+    --color-g: hwb(163 0% 18%);
+    --color-lb: hwb(213 22% 1%);
+    --color-db: hwb(231 16% 2%);
+    --color-p: hwb(247 33% 1%);
+    --color-f: hwb(290 15% 0%);
+
+    --a-sharp-color: hwb(58 0% 0%);
 }
 
 .fretboard {
@@ -64,8 +76,43 @@
 .fret .note {
         border: 1px solid dodgerblue;
         background-color: royalblue;
+
+        // TODO - replace with better note colors
+        // TODO - use good contrasting colors
+        // TODO - use darker versions for the borders
+        &[data-name='A'] {
+            background-color: var(--color-r);
+        }
+        &[data-name='A#'] {
+            background-color: var(--color-o);
+        }
+        &[data-name='B'] {
+            background-color: var(--color-y);
+        }
+        &[data-name='C'] {
+            background-color: var(--color-g);
+        }
+        &[data-name='C#'] {
+            background-color: var(--color-lb);
+        }
+        &[data-name='D'] {
+            background-color: var(--color-db);
+        }
+        &[data-name='D#'] {
+            background-color: var(--color-p);
+        }
+        &[data-name='E'] {
+            background-color: var(--color-f);
+        }
+        &[data-name='F'] {
+            background-color: var(--color-r);
+        }
+        &[data-name='F#'] {
+            background-color: var(--color-o);
+        }
 }
 
+// needed to hide extra space for placeholder header
 .placehodor {
     padding: 0px;
 }

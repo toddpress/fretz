@@ -31,13 +31,13 @@ export const Fret = ({
     <td
       headers={`string_${stringNumber} fret_${fretNumber}`}
       className={ccc(`fret_${fretNumber}`, className)}
-      data-name={noteName}
       style={{ width: `${FRET_WIDTHS[fretNumber] * 4}rem`, textShadow: '0px 0px 4px #000', borderRight: '4px solid #383530'}}
       {...props}
     >
       <span
         className={ccc(styles.note)}
         aria-labelledby={`string_${stringNumber} fret_${fretNumber}`}
+        data-name={noteName}
       >
         {noteName}
       </span>

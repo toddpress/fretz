@@ -8,6 +8,7 @@ export const DROP_C: Note[] = ['C', 'G', 'C', 'F', 'A', 'D']
 export const DOUBLE_DROP_C: Note[] = ['C', 'G', 'C', 'F', 'A', 'C']
 export const OPEN_D: Note[] = ['D', 'A', 'D', 'F#', 'A', 'D']
 
+// TODO - convert to scss styles and add rules for `.fret_n`
 export const FRET_WIDTHS = [
   0.5,
   2.5,
