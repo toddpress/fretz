@@ -47,6 +47,7 @@
     display: inline-flex;
     justify-content: center;
     align-items: center;
+    padding: 0.2rem 0;
 
     .note {
         position: relative;
@@ -56,7 +57,15 @@
         display: inline-flex;
         justify-content: center;
         align-items: center;
+        font-size: 0.8em;
+    }
+}
+
+.fret .note {
         border: 1px solid dodgerblue;
         background-color: royalblue;
-    }
+}
+
+.placehodor {
+    padding: 0px;
 }

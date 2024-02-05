@@ -3,6 +3,7 @@ import { Note } from '../../types'
 import { getNotes } from '../../util'
 import { FRET_WIDTHS } from '../../constants'
 import styles from './Fretboard.module.scss'
+import { getOrdinal } from '../../util/getOrdinal'
 
 type FretboardProps = {
     fretCount?: number
@@ -10,6 +11,7 @@ type FretboardProps = {
 }
 const STANDARD: Note[] = ['E', 'A', 'D', 'G', 'B', 'E']
 
+// TODO - fretCount should account for the number of frets on the guitar's fingerboard not number of notes
 export const Fretboard = ({ tuning = STANDARD, fretCount = 24 }: FretboardProps) => {
 
     const frets = Array.from({ length: fretCount }, (_, index) => index)
@@ -21,10 +23,10 @@ export const Fretboard = ({ tuning = STANDARD, fretCount = 24 }: FretboardProps)
         <table className="neck">
             <thead>
                 <tr style={{ display: 'flex'}}>
-                    <th scope="col" role="presentation"></th>
+                    <th scope="col" role="presentation" className={styles.placehodor}></th>
                     {frets.map((fret) => {
                         const id = `fret_${fret}`
-                        const fretName = `${fret}`
+                        const fretName = `${getOrdinal(fret)} Fret`
                         return (
                             <th
                                 key={id}
@@ -32,7 +34,8 @@ export const Fretboard = ({ tuning = STANDARD, fretCount = 24 }: FretboardProps)
                                 scope="col"
                                 style={{ width: `${FRET_WIDTHS[fret] * 4}rem` }}
                             >
-                                <span>{fretName}</span>
+                                <span className="sr-only">{fretName}</span>
+                                <span aria-hidden="true">{fret}</span>
                             </th>
                         )
                     })}
