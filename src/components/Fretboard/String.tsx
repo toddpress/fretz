@@ -24,7 +24,7 @@ const String = ({ stringNumber, notes }: StringProps) => {
                 fretNumber={0}
                 stringNumber={stringNumber}
                 note={openNote}
-                classNames={ccc(styles.nut, `fret_0`)}
+                className={ccc(styles.nut)}
             />
 
             <For in={frets}>
@@ -33,6 +33,7 @@ const String = ({ stringNumber, notes }: StringProps) => {
                         fretNumber={index + 1}
                         stringNumber={stringNumber}
                         note={note}
+                        className={styles.fret}
                     />
                 )}
             </For>

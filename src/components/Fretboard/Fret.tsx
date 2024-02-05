@@ -1,7 +1,9 @@
 import { Note } from "../../types";
 import { normalizeNoteName } from "../../util";
-import { FRET_WIDTHS } from "../../constants";
 import { ccc } from "../../util/ccc";
+import { FRET_WIDTHS } from "../../constants";
+
+import styles from "./fretboard.module.scss";
 
 type FretProps = {
   fretNumber: number;
@@ -21,20 +23,20 @@ export const Fret = ({
   fretNumber,
   stringNumber,
   note,
-  classNames,
+  className,
   ...props
 }: FretProps) => {
   const noteName = normalizeNoteName(note);
   return (
     <td
       headers={`string_${stringNumber} fret_${fretNumber}`}
-      className={ccc('fret', `fret_${fretNumber}`, classNames)}
+      className={ccc(`fret_${fretNumber}`, className)}
       data-name={noteName}
       style={{ width: `${FRET_WIDTHS[fretNumber] * 4}rem`, textShadow: '0px 0px 4px #000', borderRight: '4px solid #383530'}}
       {...props}
     >
       <span
-        className='note-name'
+        className={ccc(styles.note)}
         aria-labelledby={`string_${stringNumber} fret_${fretNumber}`}
       >
         {noteName}
