@@ -17,22 +17,46 @@
     align-items: flex-start;
     width: 100%;
     padding: 0;
-    background-color: var(--fretboard-color);
-    // border-radius: 0.5rem;
+    background-color: var(--marker-color);
     box-shadow: 0 0 0.5rem 0.25rem rgba(0, 0, 0, 0.5);
 
     .string {
         position: relative;
-        background-image: linear-gradient(
-            to bottom,
-            transparent 48%,
-            darkgrey 48%,
-            darkgrey 51.9%,
-            transparent 52%
-        );
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 0.15rem;
+            background-color: darkgrey;
+        }
+
+        .nut {
+            background-color: var(--marker-color);
+        }
+
+        .fret {
+            background-color: var(--fretboard-color);
+        }
     }
 }
 
-.nut {
-    background-color: var(--marker-color);
+.nut, .fret {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    .note {
+        position: relative;
+        border-radius: 50%;
+        width: 1.6rem;
+        height: 1.6rem;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid dodgerblue;
+        background-color: royalblue;
+    }
 }
