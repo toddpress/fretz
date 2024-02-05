@@ -1,8 +1,11 @@
 
 import { For } from '../common/For'
 import { Fret } from './Fret'
+import { ccc } from '../../util/ccc'
 
 import { Note } from '../../types'
+
+import styles from './Fretboard.module.scss'
 
 type StringProps = {
     stringNumber: number
@@ -10,15 +13,24 @@ type StringProps = {
 }
 
 const String = ({ stringNumber, notes }: StringProps) => {
+    const [openNote, ...frets] = notes
     return (
-        <tr style={{ display: 'flex' }}>
-            <th id={`string_${stringNumber}`} scope="row">
-                <span className="sr-only">String {stringNumber}</span>
+        <tr className={styles.string} style={{ display: 'flex' }}>
+            <th id={`string_${stringNumber}`} className="sr-only" scope="row">
+                <span>String {stringNumber}</span>
             </th>
-            <For in={notes}>
+
+            <Fret
+                fretNumber={0}
+                stringNumber={stringNumber}
+                note={openNote}
+                classNames={ccc(styles.nut, `fret_0`)}
+            />
+
+            <For in={frets}>
                 {(note: Note, index: number) => (
                     <Fret
-                        fretNumber={index}
+                        fretNumber={index + 1}
                         stringNumber={stringNumber}
                         note={note}
                     />

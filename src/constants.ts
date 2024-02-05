@@ -9,7 +9,7 @@ export const DOUBLE_DROP_C: Note[] = ['C', 'G', 'C', 'F', 'A', 'C']
 export const OPEN_D: Note[] = ['D', 'A', 'D', 'F#', 'A', 'D']
 
 export const FRET_WIDTHS = [
-  0.9,
+  0.5,
   2.5,
   2.3596857817042336,
   2.2272467953508484,

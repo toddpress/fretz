@@ -10,3 +10,29 @@
     --fret-ratio: 0.9439;
     --first-fret-width: 2.5rem;
 }
+
+.fretboard {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    width: 100%;
+    padding: 0;
+    background-color: var(--fretboard-color);
+    // border-radius: 0.5rem;
+    box-shadow: 0 0 0.5rem 0.25rem rgba(0, 0, 0, 0.5);
+
+    .string {
+        position: relative;
+        background-image: linear-gradient(
+            to bottom,
+            transparent 48%,
+            darkgrey 48%,
+            darkgrey 51.9%,
+            transparent 52%
+        );
+    }
+}
+
+.nut {
+    background-color: var(--marker-color);
+}

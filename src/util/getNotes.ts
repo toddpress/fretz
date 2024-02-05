@@ -26,5 +26,5 @@ function* noteGenerator(startNote: Note) {
 
 export function getNotes(startNote: Note, length: number = 12): Note[] {
     const noteGen = noteGenerator(startNote)
-    return Array.from({ length }, () => noteGen.next().value!)
+    return Array.from({ 0: 0, length }, () => noteGen.next().value!)
 }
