@@ -11,16 +11,19 @@
     --first-fret-width: 2.5rem;
 
     // TODO - explitly name colors by note
-    --color-r: hwb(350 35% 0%);
-    --color-o: hwb(31 0% 0%);
-    --color-y: hwb(49 0% 4%);
-    --color-g: hwb(163 0% 18%);
-    --color-lb: hwb(213 22% 1%);
-    --color-db: hwb(231 16% 2%);
-    --color-p: hwb(247 33% 1%);
-    --color-f: hwb(290 15% 0%);
-
-    --a-sharp-color: hwb(58 0% 0%);
+    --a-bg: hwb(359 63% 13%);
+    --a-sharp-bg: hwb(31 63% 13%);
+    --b-bg: hwb(65 63% 11%);
+    --c-bg: hwb(95 64% 11%);
+    --c-sharp-bg: hwb(126 61% 11%);
+    --d-bg: hwb(152 61% 11%);
+    --d-sharp-bg: hwb(180 61% 11%);
+    --e-bg: hwb(208 61% 11%);
+    --f-bg: hwb(235 61% 11%);
+    --f-sharp-bg: hwb(266 63% 11%);
+    --g-bg: hwb(295 63% 11%);
+    --g-sharp-bg: hwb(327 63% 11%);
+    --g-sharp-border: hwb(327 10% 60%);
 }
 
 .fretboard {
@@ -81,34 +84,40 @@
         // TODO - use good contrasting colors
         // TODO - use darker versions for the borders
         &[data-name='A'] {
-            background-color: var(--color-r);
+            background-color: var(--a-bg);
         }
         &[data-name='A#'] {
-            background-color: var(--color-o);
+            background-color: var(--a-sharp-bg);
         }
         &[data-name='B'] {
-            background-color: var(--color-y);
+            background-color: var(--b-bg);
         }
         &[data-name='C'] {
-            background-color: var(--color-g);
+            background-color: var(--c-bg);
         }
         &[data-name='C#'] {
-            background-color: var(--color-lb);
+            background-color: var(--c-sharp-bg);
         }
         &[data-name='D'] {
-            background-color: var(--color-db);
+            background-color: var(--d-bg);
         }
         &[data-name='D#'] {
-            background-color: var(--color-p);
+            background-color: var(--d-sharp-bg);
         }
         &[data-name='E'] {
-            background-color: var(--color-f);
+            background-color: var(--e-bg);
         }
         &[data-name='F'] {
-            background-color: var(--color-r);
+            background-color: var(--f-bg);
         }
         &[data-name='F#'] {
-            background-color: var(--color-o);
+            background-color: var(--f-sharp-bg);
+        }
+        &[data-name='G'] {
+            background-color: var(--g-bg);
+        }
+        &[data-name='G#'] {
+            background-color: var(--g-sharp-bg);
         }
 }
 
