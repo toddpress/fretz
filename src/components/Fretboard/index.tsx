@@ -2,8 +2,8 @@ import String from './String'
 import { Note } from '../../types'
 import { getNotes } from '../../util'
 import { FRET_WIDTHS } from '../../constants'
-import styles from './Fretboard.module.scss'
 import { getOrdinal } from '../../util/getOrdinal'
+import styles from './fretboard.module.scss'
 
 type FretboardProps = {
     fretCount?: number
@@ -20,7 +20,7 @@ export const Fretboard = ({ tuning = STANDARD, fretCount = 24 }: FretboardProps)
     })
 
     return (
-        <table className="neck">
+        <table className={styles.neck}>
             <thead>
                 <tr style={{ display: 'flex'}}>
                     <th scope="col" role="presentation" className={styles.placehodor}></th>

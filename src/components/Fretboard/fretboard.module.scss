@@ -1,29 +1,64 @@
 /**
 * # Fretboard widths
-*
 * Width of Fret n = calc(var(--first-fret-width) * var(fret-ratio) ** (n−1))
 */
 
-:root {
-    --marker-color: #383530;
-    --fretboard-color: #755628;
-    --fret-ratio: 0.9439;
-    --first-fret-width: 2.5rem;
+//TODO - multiply fret widths by 4 in constants not in render
+//TODO - use fret ratio to calculate fret width instead of inlining at render
+//TODO - dedupe and reorganize scss
+//TODO - use hsl colors for scss
+//TODO - identify fret color to use (currently using marker)
 
-    // TODO - explitly name colors by note
-    --a-bg: hwb(359 63% 13%);
-    --a-sharp-bg: hwb(31 63% 13%);
-    --b-bg: hwb(65 63% 11%);
-    --c-bg: hwb(95 64% 11%);
-    --c-sharp-bg: hwb(126 61% 11%);
-    --d-bg: hwb(152 61% 11%);
-    --d-sharp-bg: hwb(180 61% 11%);
-    --e-bg: hwb(208 61% 11%);
-    --f-bg: hwb(235 61% 11%);
-    --f-sharp-bg: hwb(266 63% 11%);
-    --g-bg: hwb(295 63% 11%);
-    --g-sharp-bg: hwb(327 63% 11%);
-    --g-sharp-border: hwb(327 10% 60%);
+// fretboard
+$marker-color: #383530;
+$fretboard-color: #755628;
+$string-color: darkgrey;
+$fret-ratio: 0.9439;
+$first-fret-width: 2.5rem;
+
+// note colors
+$a-bg: hwb(359 63% 13%);
+$a-color: hwb(359 13% 63%);
+
+$a-sharp-bg: hwb(31 63% 13%);
+$a-sharp-color: hwb(31 13% 63%);
+
+$b-bg: hwb(65 63% 11%);
+$b-color: hwb(65 11% 63%);
+
+$c-bg: hwb(95 64% 11%);
+$c-color: hwb(95 11% 64%);
+
+$c-sharp-bg: hwb(126 61% 11%);
+$c-sharp-color: hwb(126 11% 61%);
+
+$d-bg: hwb(152 61% 11%);
+$d-color: hwb(152 11% 61%);
+
+$d-sharp-bg: hwb(180 61% 11%);
+$d-sharp-color: hwb(180 11% 61%);
+
+$e-bg: hwb(208 61% 11%);
+$e-color: hwb(208 11% 61%);
+
+$f-bg: hwb(235 61% 11%);
+$f-color: hwb(235 11% 61%);
+
+$f-sharp-bg: hwb(266 63% 11%);
+$f-sharp-color: hwb(266 11% 63%);
+
+$g-bg: hwb(295 63% 11%);
+$g-color: hwb(295 11% 63%);
+
+$g-sharp-bg: hwb(327 63% 11%);
+$g-sharp-color: hwb(327 10% 60%);
+
+.neck {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: self-start;
+    width: fit-content;
+    margin: 0 auto;
 }
 
 .fretboard {
@@ -32,7 +67,7 @@
     align-items: flex-start;
     width: 100%;
     padding: 0;
-    background-color: var(--marker-color);
+    background-color: $marker-color;
     box-shadow: 0 0 0.5rem 0.25rem rgba(0, 0, 0, 0.5);
 
     .string {
@@ -45,15 +80,21 @@
             left: 0;
             width: 100%;
             height: 0.15rem;
-            background-color: darkgrey;
+            background-color: $string-color;
         }
 
         .nut {
-            background-color: var(--marker-color);
+            background-color: $marker-color;
+            z-index: 1;
         }
 
         .fret {
-            background-color: var(--fretboard-color);
+            background-color: $fretboard-color;
+            font-weight: bolder;
+
+            &:not(:last-of-type) {
+                border-right: 4px solid $marker-color;
+            }
         }
     }
 }
@@ -80,44 +121,65 @@
         border: 1px solid dodgerblue;
         background-color: royalblue;
 
-        // TODO - replace with better note colors
-        // TODO - use good contrasting colors
-        // TODO - use darker versions for the borders
         &[data-name='A'] {
-            background-color: var(--a-bg);
+            background-color: $a-bg;
+            color: $a-color;
+            border-color: $a-color;
         }
         &[data-name='A#'] {
-            background-color: var(--a-sharp-bg);
+            background-color: $a-sharp-bg;
+            color: $a-sharp-color;
+            border-color: $a-sharp-color;
         }
         &[data-name='B'] {
-            background-color: var(--b-bg);
+            background-color: $b-bg;
+            color: $b-color;
+            border-color: $b-color;
         }
         &[data-name='C'] {
-            background-color: var(--c-bg);
+            background-color: $c-bg;
+            color: $c-color;
+            border-color: $c-color;
         }
         &[data-name='C#'] {
-            background-color: var(--c-sharp-bg);
+            background-color: $c-sharp-bg;
+            color: $c-sharp-color;
+            border-color: $c-sharp-color;
         }
         &[data-name='D'] {
-            background-color: var(--d-bg);
+            background-color: $d-bg;
+            color: $d-color;
+            border-color: $d-color;
         }
         &[data-name='D#'] {
-            background-color: var(--d-sharp-bg);
+            background-color: $d-sharp-bg;
+            color: $d-sharp-color;
+            border-color: $d-sharp-color;
         }
         &[data-name='E'] {
-            background-color: var(--e-bg);
+            background-color: $e-bg;
+            color: $e-color;
+            border-color: $e-color;
         }
         &[data-name='F'] {
-            background-color: var(--f-bg);
+            background-color: $f-bg;
+            color: $f-color;
+            border-color: $f-color;
         }
         &[data-name='F#'] {
-            background-color: var(--f-sharp-bg);
+            background-color: $f-sharp-bg;
+            color: $f-sharp-color;
+            border-color: $f-sharp-color;
         }
         &[data-name='G'] {
-            background-color: var(--g-bg);
+            background-color: $g-bg;
+            color: $g-color;
+            border-color: $g-color;
         }
         &[data-name='G#'] {
-            background-color: var(--g-sharp-bg);
+            background-color: $g-sharp-bg;
+            color: $g-sharp-color;
+            border-color: $g-sharp-color;
         }
 }
 

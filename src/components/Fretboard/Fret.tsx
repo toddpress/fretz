@@ -31,7 +31,7 @@ export const Fret = ({
     <td
       headers={`string_${stringNumber} fret_${fretNumber}`}
       className={ccc(`fret_${fretNumber}`, className)}
-      style={{ width: `${FRET_WIDTHS[fretNumber] * 4}rem`, textShadow: '0px 0px 4px #000', borderRight: '4px solid #383530'}}
+      style={{ width: `${FRET_WIDTHS[fretNumber] * 4}rem`}}
       {...props}
     >
       <span
